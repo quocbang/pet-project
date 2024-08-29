@@ -1,1 +1,14 @@
 # write docker with postgres database
+version: '3'
+services: 
+  dockerlearn:
+    container_name: pet-project
+    image: postgres:14.13-alpine3.20
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - ${PORT}:5432
+    volumes:
+      - ./tmp/postgres:/var/lib/postgresql/data
