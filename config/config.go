@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/joho/godotenv"
@@ -28,6 +29,8 @@ func LoadConfig() (DB, error) {
 	err = envconfig.Process("myapp", &cfg)
 	if err != nil {
 		log.Fatalf("process env failed, error: %v", err)
+	}else{
+		fmt.Printf("bug: %v", err)
 	}
 	return cfg, nil
 }
